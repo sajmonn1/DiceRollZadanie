@@ -26,9 +26,11 @@
                 <Image x:Name="Dice4" FlexLayout.Basis="20%" Source="k6_0.png" />
             </FlexLayout>
             <Label
-                Text="Wynik tego losowania: 0:" 
+                x:Name="RollResultLabel"
+                Text="Wynik tego losowania: 0" 
                 HorizontalTextAlignment="Center"/>
             <Label
+                x:Name="GameResultLabel"
                 Text="Wynik gry: 0"
                 HorizontalTextAlignment="Center"/>
             <Button

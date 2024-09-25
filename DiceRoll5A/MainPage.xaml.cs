@@ -2,6 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
+        int gameResult = 0;
         public MainPage()
         {
             InitializeComponent();
@@ -20,6 +21,26 @@
             Dice2.Source = "k6_" + dice[2] + ".png";
             Dice3.Source = "k6_" + dice[3] + ".png";
             Dice4.Source = "k6_" + dice[4] + ".png";
+            int rollResult = 0;
+            for (int dots = 1; dots <= 6; dots++)
+            {
+                int count = 0;
+                for(int diceIndex = 0; diceIndex < 5; diceIndex++)
+                {
+                    if (dice[diceIndex] == dots)
+                    {
+                        count++;
+                    }
+                }
+                if (count > 1)
+                {
+                    rollResult += dots * count;
+                }
+            }
+      
+            RollResultLabel.Text = "Wynik tego losowania: " + rollResult;
+            gameResult += rollResult;
+            GameResultLabel.Text = "Wynik gry: " + gameResult;
         }
 
         private void ResetGame(object sender, EventArgs e)
@@ -29,6 +50,10 @@
             Dice2.Source = "k6_0.png";
             Dice3.Source = "k6_0.png";
             Dice4.Source = "k6_0.png";
+
+            gameResult = 0;
+            GameResultLabel.Text = "Wynik gry: " + gameResult;
+            GameResultLabel.Text = "Wynik tego losowania: 0";
         }
     }
 }
